@@ -39,9 +39,19 @@ validity_succeeded_msg = "Access Token is valid!";
 var req = new XMLHttpRequest();
 
 // ---- YOUR CODE BEGIN ----
-getPeopleInfo();
 
-
+req.open('GET', 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=' + params["access_token"], true);
+req.onreadystatechange = function (e) {
+	if (req.readyState == 4) {
+		if(req.status == 200){
+			print_to_page("validity", validity_succeeded_msg);
+			getPeopleInfo();
+		} else if(req.status == 400){
+			print_to_page("validity", validity_failed_msg);
+		}
+	} 
+};
+req.send(null);
 // ---- YOUR CODE END ----
 
 // Provided
