@@ -1,0 +1,30 @@
+#Abegail Jakop, 998863118, abegail.jakop@mail.utoronto.ca
+#Minh Hoang Le, 999019930, minh.lehoang@mail.utoronto.ca
+
+Part 1
+
+We changed the variable email_scope to be "email".
+
+Part 2
+
+Within views/auth.tpl, we copied the code from within getPeopleInfo() and
+modified the request to check that the access token is valid. If the request
+status was 400, report that the token was invalid. Otherwise, report that the
+token is fine, and call getPeopleInfo().
+
+Part 3
+
+Set the SCOPE variable to be drive.file as it provides "Per-file access to
+files created or opened by the app". Then include the code from the tutorial
+that checks if the auth code is available, and if it's not, generates a URL to
+requst access to the Oauth sever, and redirects the user there. Otherwise,
+grab the auth code, set the credentials to it, and output the credentials using
+the helper function.
+
+Part 4
+
+We start/build the plus and drive service and include the plus.login URL to the
+scope to avoid permission errors. Next we gather our profile information and
+output that to profile.out. Now that we have a file, we follow the OAuth
+example on how to insert a file to the google drive using the google drive
+service.
